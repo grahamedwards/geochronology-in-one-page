@@ -1,0 +1,98 @@
+\documentclass[12pt, letterpaper,twocolumn]{article}
+\usepackage[margin=.9in]{geometry}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath}
+\pagestyle{empty}
+
+\usepackage[tiny,noindentafter]{titlesec}
+\titlespacing{\section}{0ex}{2ex}{0ex} % left, before-sep, after-sep, {right-sep}
+\titleformat{\section}[hang]{\bfseries}{Part \thesection:}{1em}{}
+
+\setlength{\parskip}{1.5ex}\setlength{\parindent}{0ex}
+\setlength{\columnsep}{3em}
+
+
+\usepackage{titling}\setlength{\droptitle}{-60pt}
+\title{Radiometric dating equations (in one page) \vspace*{-2ex}}
+\author{Graham H.~Edwards}
+\date{\vspace*{-6ex}}
+
+\begin{document}
+\maketitle \thispagestyle{empty}
+\addtolength{\jot}{1ex}
+
+\section{The age equation}
+We begin with the observation that the rate of \emph{decay} (i.e.~the negative rate of change in the abundance) of a radioactive isotope with respect to time ($dN/dt$) is directly proportional to its abundance $N$ at any given moment:
+\begin{equation}\label{eq:dNdt}
+    \frac{dN}{dt} = -\lambda N
+\end{equation}
+
+\dots assuming a constant of proportionality $\lambda$, which we'll call $N$'s ``decay constant.''
+
+Now, separate the derivatives in Eq.~\ref{eq:dNdt} and calculate their definite integrals over the time interval $\left[0,t\right]$.
+\begin{subequations}\label{eq:age}
+    \begin{align*}
+        \frac{1}{N}~dN &= -\lambda~dt
+        \\
+        \int_0^t \frac{1}{N}~dN & = \int_0^t -\lambda~dt
+        \\
+        \ln N - \ln N_o &= -\lambda t - -\lambda \cdot 0
+        \\
+        \ln \frac{N}{N_o} &= -\lambda t
+        \\
+        \frac{N}{N_o} &= e^{-\lambda t}
+        \\
+        N &= N_o~e^{-\lambda t} \tag{\ref{eq:age}}
+    \end{align*}
+\end{subequations}
+
+\dots where $N$ is the abundance of the radioactive isotope at some moment in time $t$, and $N_o$ is its \emph{initial} abundance at time $t=0$.
+
+Eq.~\ref{eq:age} is the radiometric ``age equation.''
+
+\section{Using the age equation}
+Start with Eq.~\ref{eq:age}, which describes the amount of radioactive isotope $N$ (with initial abundance $N_o$) remaining after time $t$, given the isotope's decay constant $\lambda$ (units of $t^{-1}$).
+
+From this, we calculate the abundance of radiogenic isotope $n*$ produced by the decay of $N$
+\begin{subequations}\label{eq:nNo}
+\begin{align*}
+    n* &= N_o - N 
+\\
+    n* &= N_o - N_o~e^{-\lambda t}
+\\
+    n* &= N_o \left( 1 - e^{-\lambda t} \right) \tag{\ref{eq:nNo}}
+\end{align*}
+\end{subequations}
+
+This is lovely but requires knowledge of $N_o$, which is lost to time. 
+All we can measure today is the value $N$.
+So, let's rearrange Eq.~\ref{eq:age} to solve for $N_o$\dots
+\begin{equation} \label{eq:No}
+    N_o = \frac{N}{e^{-\lambda t}} = N~e^{\lambda t}
+\end{equation}
+
+\dots and substitute Eq.~\ref{eq:No} into Eq.~\ref{eq:nNo}\dots
+
+\begin{subequations}\label{eq:nN}
+\begin{align*}
+     n* &= \left(N~e^{\lambda t}\right) \left( 1 - e^{-\lambda t}\right) 
+     \\
+     n* &= N \left( e^{\lambda t} - e^{\lambda t} e^{-\lambda t}\right) 
+     \\
+     n* &= N \left( e^{\lambda t} - 1 \right) \tag{\ref{eq:nN}}
+\end{align*}
+\end{subequations}
+
+A natural system may have originally incorporated some initial amount of radiogenic isotope $n_o$, so  we calculate $n = n_o + {n*}$ as
+
+\begin{equation}\label{eq:nfull}
+    n = n_o + N \left( e^{\lambda t} - 1 \right)
+\end{equation}
+
+And \emph{finally}, because it is, in fact, quite hard to measure things as absolute abundances but easier to measure isotopic ratios, we often rewrite Eq.~\ref{eq:nfull} normalized to a stable isotope of the same element as $n$, which we'll call $^S n$.
+
+\begin{equation}\label{eq:ratios}
+    \frac{n}{^S n} = \frac{n_o}{^S n} + \frac{N}{^S n} \left( e^{\lambda t} - 1 \right)
+\end{equation}
+
+\end{document}
