@@ -1,28 +1,21 @@
 \documentclass[12pt, letterpaper,twocolumn]{article}
-\usepackage[margin=.9in]{geometry}
-\usepackage{graphicx} % Required for inserting images
-\usepackage{amsmath}
-\pagestyle{empty}
+\input{preamble.tex}
 
-\usepackage[tiny,noindentafter]{titlesec}
-\titlespacing{\section}{0ex}{2ex}{0ex} % left, before-sep, after-sep, {right-sep}
-\titleformat{\section}[hang]{\bfseries}{Part \thesection:}{1em}{}
+\title{
+    Radiometric dating equations % Title
+    (in one page) \vspace*{-1ex}}\date{\vspace*{-6ex}}
 
-\setlength{\parskip}{1.5ex}\setlength{\parindent}{0ex}
-\setlength{\columnsep}{3em}
-
-
-\usepackage{titling}\setlength{\droptitle}{-60pt}
-\title{Radiometric dating equations (in one page) \vspace*{-2ex}}
-\author{Graham H.~Edwards}
-\date{\vspace*{-6ex}}
+\author{
+    Graham H.~Edwards % Author(s)
+    }
+     
 
 \begin{document}
 \maketitle \thispagestyle{empty}
-\addtolength{\jot}{1ex}
 
 \section{The age equation}
-We begin with the observation that the rate of \emph{decay} (i.e.~the negative rate of change in the abundance) of a radioactive isotope with respect to time ($dN/dt$) is directly proportional to its abundance $N$ at any given moment:
+
+Begin with the observation that the rate of \emph{decay} of a radioactive isotope with respect to time ($dN/dt$) is directly proportional to its abundance $N$ at any given moment:
 \begin{equation}\label{eq:dNdt}
     \frac{dN}{dt} = -\lambda N
 \end{equation}
@@ -53,7 +46,7 @@ Eq.~\ref{eq:age} is the radiometric ``age equation.''
 \section{Using the age equation}
 Start with Eq.~\ref{eq:age}, which describes the amount of radioactive isotope $N$ (with initial abundance $N_o$) remaining after time $t$, given the isotope's decay constant $\lambda$ (units of $t^{-1}$).
 
-From this, we calculate the abundance of radiogenic isotope $n*$ produced by the decay of $N$
+From this, calculate the abundance of radiogenic isotope $n*$ produced by the decay of $N$\dots
 \begin{subequations}\label{eq:nNo}
 \begin{align*}
     n* &= N_o - N 
